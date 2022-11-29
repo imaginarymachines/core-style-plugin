@@ -1,12 +1,12 @@
 {
-  "name": "two-factor",
-  "title": "Two Factor",
+  "name": "core-style-plugin",
+  "title": "COMPOSER_DESCRIPTION",
   "private": true,
   "engineStrict": true,
   "engines": {
     "node": ">=16"
   },
-  "homepage": "https://github.com/wordpress/two-factor",
+  "homepage": "https://github.com/imaginarymachines/core-style-plugin",
   "scripts": {
     "env": "wp-env",
     "deploy": "grunt deploy",
@@ -19,20 +19,17 @@
     "format:php": "composer format",
     "format:js": "npm run lint:js -- --fix",
     "format:css": "npm run lint:css -- --fix",
-    "test": "npm run composer test",
+    "test:php": "npm run composer test",
     "test:watch": "npm run composer test:watch",
-    "composer": "wp-env run phpunit composer --working-dir=/var/www/html/wp-content/plugins/two-factor",
+    "composer": "wp-env run phpunit composer --working-dir=/var/www/html/wp-content/plugins/core-style-plugin",
     "preinstall": "composer install"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wordpress/two-factor.git"
+    "url": "https://github.com/imaginarymachines/core-style-plugin.git"
   },
-  "author": "georgestephanis",
+  "author": "PLUGIN_AUTHOR",
   "license": "GPL-2.0+",
-  "dependencies": {
-    "qrcode-generator": "^1.4.4"
-  },
   "devDependencies": {
     "@wordpress/env": "^5.4.0",
     "@wordpress/eslint-plugin": "^13.3.0",
@@ -40,7 +37,6 @@
     "grunt": "^1.5.3",
     "grunt-cli": "^1.4.3",
     "grunt-contrib-clean": "^2.0.1",
-    "grunt-contrib-copy": "^1.0.0",
     "grunt-wp-deploy": "^2.1.2",
     "load-grunt-tasks": "^5.1.0",
     "npm-run-all": "^4.1.5",

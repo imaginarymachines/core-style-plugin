@@ -30,23 +30,6 @@ module.exports = function( grunt ) {
 			build: [ '<%= dist_dir %>' ],
 		},
 
-		copy: {
-			dist: {
-				files: [
-					{
-						src: [ '**' ].concat( distignore ),
-						dest: '<%= dist_dir %>',
-						expand: true,
-					},
-					{
-						cwd: 'node_modules/',
-						src: 'qrcode-generator/qrcode.js',
-						dest: '<%= dist_dir %>/includes',
-						expand: true,
-					}
-				],
-			},
-		},
 
 		wp_deploy: {
 			options: {
@@ -69,7 +52,6 @@ module.exports = function( grunt ) {
 	grunt.registerTask(
 		'build', [
 			'clean',
-			'copy',
 		]
 	);
 

@@ -1,9 +1,9 @@
 {
-  "name": "wordpress/two-factor",
+  "name": "imaginarymachines/core-style-plugin",
   "type": "wordpress-plugin",
-  "description": "Two-Factor Authentication for WordPress.",
+  "description": "PLUGIN_DESCRIPTION",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://wordpress.org/plugins/two-factor/",
+  "homepage": "https://wordpress.org/imaginarymachines/core-style-plugin",
   "support": {
     "source": "https://github.com/WordPress/two-factor",
     "forum": "https://wordpress.org/support/plugin/two-factor/",

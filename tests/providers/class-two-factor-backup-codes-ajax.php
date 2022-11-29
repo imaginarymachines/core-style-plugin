@@ -87,7 +87,7 @@ class Tests_Two_Factor_Backup_Codes_AJAX extends WP_Ajax_UnitTestCase {
 		$this->_setRole( 'administrator' );
 
 		$current_user     = wp_get_current_user();
-		$user             =  new WP_User( self::factory()->user->create() );
+		$user             = new WP_User( self::factory()->user->create() );
 		$_POST['user_id'] = $user->ID;
 		$_POST['nonce']   = wp_create_nonce( 'two-factor-backup-codes-generate-json-' . $user->ID );
 

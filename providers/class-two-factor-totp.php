@@ -148,8 +148,8 @@ class Two_Factor_Totp extends Two_Factor_Provider {
 		if ( empty( $key ) ) :
 			wp_enqueue_script( 'two-factor-qr-code-generator' );
 
-			$key        = $this->generate_key();
-			$site_name  = get_bloginfo( 'name', 'display' );
+			$key       = $this->generate_key();
+			$site_name = get_bloginfo( 'name', 'display' );
 
 			// Must follow TOTP format for a "label":
 			// https://github.com/google/google-authenticator/wiki/Key-Uri-Format#label
@@ -411,7 +411,7 @@ class Two_Factor_Totp extends Two_Factor_Provider {
 
 		foreach ( $ticks as $offset ) {
 			$log_time = $time + $offset;
-			if ( hash_equals(self::calc_totp( $key, $log_time ), $authcode ) ) {
+			if ( hash_equals( self::calc_totp( $key, $log_time ), $authcode ) ) {
 				return true;
 			}
 		}
