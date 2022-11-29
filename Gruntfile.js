@@ -1,15 +1,9 @@
 /* eslint-env node,es6 */
 
-const ignoreParse = require( 'parse-gitignore' );
-
 module.exports = function( grunt ) {
 	'use strict';
 
 	require( 'load-grunt-tasks' )( grunt );
-
-	const distignore = ignoreParse( '.distignore', [], {
-		invert: true,
-	} );
 
 	/**
 	 * Check if CLI input appears to indicate a truthy value.
@@ -29,7 +23,6 @@ module.exports = function( grunt ) {
 		clean: {
 			build: [ '<%= dist_dir %>' ],
 		},
-
 
 		wp_deploy: {
 			options: {
