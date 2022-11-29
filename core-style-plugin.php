@@ -2,7 +2,7 @@
 /**
  * @wordpress-plugin
  * Plugin Name: Core Style Plugin
- * Plugin URI: https://wordpress.org/plugins/core-style-plugin
+ * Plugin URI: PLUGIN_URI
  * Description: PLUGIN_DESCRIPTION
  * Author: PLUGIN_AUTHOR_NAME
  * Version: 0.1.0
