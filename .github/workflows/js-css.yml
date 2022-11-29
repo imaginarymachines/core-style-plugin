@@ -1,4 +1,4 @@
-name: Test
+name: JS/CSS
 
 # Run on
 on:
@@ -8,14 +8,15 @@ on:
       - '*'
     # If files matching these patterns have changed
     paths:
-      - 'composer.json'
-      - '**.php'
+      - 'package.json'
+      - '**.js'
+      - '**.css'
       - readme.txt
-      - .github/workflows/test.yml
+      - .github/workflows/js-css.yml
 jobs:
 
   lint:
-    name: Lint and Test
+    name: Lint and Test JS And CSS
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -41,18 +42,6 @@ jobs:
 
       - name: Lint CSS
         run: npm run lint:css
-
-      - name: Lint PHP
-        run: npm run lint:php || true # Ignore for now.
-
-      - name: Lint PHP8
-        run: composer lint-php8
-
-      - name: Start the Docker testing environment
-        run: npm run env start --xdebug=coverage
-
-      - name: Test
-        run: npm run test
 
       - name: Build
         run: npm run build
