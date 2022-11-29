@@ -18,7 +18,7 @@ class Tests_Two_Factor extends WP_UnitTestCase {
 	 */
 	public function test_constant_defined() {
 
-		$this->assertTrue( defined( 'TWO_FACTOR_DIR' ) );
+		$this->assertTrue( defined( 'CORE_STYLE_PLUGIN_DIR' ) );
 
 	}
 
@@ -27,7 +27,6 @@ class Tests_Two_Factor extends WP_UnitTestCase {
 	 */
 	public function test_classes_exist() {
 
-		$this->assertTrue( class_exists( 'Two_Factor_Provider' ) );
 		$this->assertTrue( class_exists( 'Two_Factor_Core' ) );
 
 	}
