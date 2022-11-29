@@ -1,5 +1,6 @@
 {
   "core": "./wordpress",
   "phpVersion": "7.4",
-  "plugins": [ "." ]
+  "plugins": [ "." ],
+  "port": 8042
 }
