@@ -2,9 +2,9 @@
 /**
  * @wordpress-plugin
  * Plugin Name: Core Style Plugin
- * Plugin URI: PLUGIN_URI
- * Description: PLUGIN_DESCRIPTION
- * Author: PLUGIN_AUTHOR_NAME
+ * Plugin URI: https://pluginmachine.com/plugin/core-style-plugin
+ * Description: words-describes-plugin
+ * Author: Josh Pollock
  * Version: 0.1.0
  * Author URI: https://pluginmachine.com
  * Network: True
