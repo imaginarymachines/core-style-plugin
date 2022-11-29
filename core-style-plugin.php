@@ -24,6 +24,6 @@ define( 'CORE_STYLE_PLUGIN_VERSION', '0.1.0' );
 /**
  * Include the core that handles the common bits.
  */
-require_once CORE_STYLE_PLUGIN_DIR . 'class-two-factor-core.php';
+require_once CORE_STYLE_PLUGIN_DIR . 'class-core-style-plugin.php';
 
-Two_Factor_Core::add_hooks();
+Core_Style_Plugin::add_hooks();

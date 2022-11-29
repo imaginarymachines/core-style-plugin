@@ -1,17 +1,10 @@
 <?php
-/**
- * Test Two Factor.
- *
- * @package Two_Factor
- */
+
 
 /**
- * Class Tests_Two_Factor
- *
- * @package Two_Factor
- * @group core
+ * Test plugin is
  */
-class Tests_Two_Factor extends WP_UnitTestCase {
+class Tests_Plugin_Setup extends WP_UnitTestCase {
 
 	/**
 	 * Check that the TWO_FACTOR_DIR constant is defined.
@@ -27,7 +20,7 @@ class Tests_Two_Factor extends WP_UnitTestCase {
 	 */
 	public function test_classes_exist() {
 
-		$this->assertTrue( class_exists( 'Two_Factor_Core' ) );
+		$this->assertTrue( class_exists( 'Core_Style_Plugin' ) );
 
 	}
 }

@@ -1,19 +1,9 @@
 <?php
-/**
- * Two Factore Core Class.
- *
- * @package Two_Factor
- */
 
 /**
- * Class for creating two factor authorization.
- *
- * @since 0.1-dev
- *
- * @package Two_Factor
+ * Initalize plugin
  */
-class Two_Factor_Core {
-
+class Core_Style_Plugin {
 
 	/**
 	 * Set up filters and actions.
