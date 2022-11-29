@@ -1,7 +1,17 @@
 name: Test
 
-on: [push, pull_request]
-
+# Run on
+on:
+  push:
+    # any branch
+    branches:
+      - '*'
+    # If files matching these patterns have changed
+    paths:
+      - 'composer.json'
+      - '**.php'
+      - readme.txt
+      - .github/workflows/test.yml
 jobs:
 
   lint:
