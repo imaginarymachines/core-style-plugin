@@ -60,5 +60,68 @@ class Test_ClassTwoFactorCore extends WP_UnitTestCase {
 
 	}
 
+	/**
+	 * Verify sanitizing settings.
+	 *
+	 * @covers Two_Factor_Core::sanitize_settings
+	 */
+	public function test_sanitize_settings() {
+		$prepared = Core_Style_Plugin::sanitize_settings(
+			array(
+				'api_key' => '123',
+				'foo'     => 'bar',
+			)
+		);
+		// Has api_key
+		$this->assertArrayHasKey(
+			'api_key',
+			$prepared
+		);
+		// Not has foo
+		$this->assertArrayNotHasKey(
+			'foo',
+			$prepared
+		);
+	}
+
+	/**
+	 * Verify default settings are returned by get_settings.
+	 *
+	 * @covers Two_Factor_Core::settings_default
+	 */
+	public function test_settings_default() {
+		// delete saved
+		delete_option( CORE_STYLE_PLUGIN_SETTING );
+		$values = Core_Style_Plugin::get_settings();
+		$this->assertEquals(
+			Core_Style_Plugin::settings_default(),
+			$values
+		);
+	}
+
+	/**
+	 * Verify saved settings are returned by get_settings.
+	 *
+	 * @covers Two_Factor_Core::settings_default
+	 */
+	public function test_settings_saved() {
+		// delete saved
+		delete_option( CORE_STYLE_PLUGIN_SETTING );
+		// save
+		update_option(
+			CORE_STYLE_PLUGIN_SETTING,
+			array(
+				'api_key' => '456',
+			)
+		);
+		$values = Core_Style_Plugin::get_settings();
+		$this->assertEquals(
+			array(
+				'api_key' => '456',
+			),
+			$values
+		);
+	}
+
 
 }
