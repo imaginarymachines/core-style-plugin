@@ -5,7 +5,6 @@
  */
 class Core_Style_Plugin {
 
-	const OPTION_NAME = 'core_style_plugin_settings';
 	/**
 	 * Set up filters and actions.
 	 *
@@ -13,6 +12,7 @@ class Core_Style_Plugin {
 	 */
 	public static function add_hooks() {
 		add_action( 'plugins_loaded', array( __CLASS__, 'load_textdomain' ) );
+
 	}
 
 	/**
@@ -24,10 +24,40 @@ class Core_Style_Plugin {
 		load_plugin_textdomain( 'core-style-plugin' );
 	}
 
+	/**
+	 * Sanitizes the plugin's setting.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $values Setting value.
+	 * @return array Sanitized modules setting value.
+	 */
+	public static function sanitize_settings( $values ) {
+		if ( ! is_array( $values ) ) {
+			$values = array();
+		}
+		$data     = array();
+		$defaults = self::settings_default();
+		foreach ( $defaults as $key => $default ) {
+			if ( ! array_key_exists( $key, $values ) ) {
+				$data[ $key ] = $default;
+			} else {
+				$data[ $key ] = $values[ $key ];
+			}
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Get the default settings for the plugin.
+	 *
+	 * @return array
+	 */
 	public static function settings_default() {
-		$defaults = [
+		$defaults = array(
 			'api_key' => '',
-		];
+		);
 
 		return $defaults;
 	}
@@ -38,30 +68,32 @@ class Core_Style_Plugin {
 	 * @return array
 	 */
 	public static function get_settings() {
-		$settings = get_option( self::OPTION_NAME, self::settings_default() );
+		$settings = get_option( CORE_STYLE_PLUGIN_SETTING, self::settings_default() );
 
-		return $settings;
+		/**
+		 * Filter the settings for the plugin.
+		 *
+		 * @param array $settings Array of settings.
+		 */
+		return apply_filters( 'core_style_plugin_settings', $settings );
 	}
 
 	/**
 	 * Save the settings for the plugin.
 	 *
+	 * Important: does not sanitize data or merge with defaults.
+	 *
 	 * @param array $update Array of settings to update.
+	 * @return bool
 	 */
 	public static function save_settings( array $update ) {
-		$data = [];
-		$defaults = self::settings_default();
-		foreach ($update as $key => $value) {
-			if( ! array_key_exists( $key, $defaults ) ) {
-				continue;
-			}
-			$data[$key] = $value;
-		}
-		if ( update_option( self::OPTION_NAME, $data )){
-			return $data;
-
-		}
-		return false;
+		/**
+		 * Chnage the settings for the plugin before they are saved.
+		 *
+		 * @param array $update Array of settings to be saved.
+		 */
+		$update = apply_filters( 'core_style_plugin_pre_save_settings', $update );
+		return update_option( CORE_STYLE_PLUGIN_SETTING, $update );
 	}
 
 }
